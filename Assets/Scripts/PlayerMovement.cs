@@ -82,6 +82,11 @@ public class PlayerMovement : MonoBehaviour
         playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+    }
+
     public void DebugCamera()
     {
         transform.Rotate(Vector3.up * mouseSensitivity * Time.deltaTime * Input.GetAxisRaw("Mouse X"));

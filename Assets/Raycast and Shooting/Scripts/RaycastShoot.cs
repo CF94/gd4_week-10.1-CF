@@ -25,17 +25,16 @@ public class RaycastShoot : MonoBehaviour
     {
         laserLine = GetComponent<LineRenderer>();
         gunAudio = GetComponent<AudioSource>();
-
         fpsCam = GetComponentInParent<Camera>();
     }
     void Update()
     {
         laserLine.SetPosition(0, gunEnd.position);
 
-
         if (Input.GetKeyDown (KeyCode.Mouse0) && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
+
             StartCoroutine(ShotEffect());
 
             Vector3 rayOrigin = fpsCam.ViewportToWorldPoint(new Vector3(.5f, .5f, 0));
@@ -43,11 +42,13 @@ public class RaycastShoot : MonoBehaviour
             RaycastHit hit;
 
 
+            // Determine point of origin for raycast, direction of raycast, returning what is hit as a value, and preventing anything from being hit outside of the range            
             if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, weaponRange))
             {
                 laserLine.SetPosition(1, hit.point);
 
-                ShootableBox health = hit.collider.GetComponent<ShootableBox>();
+                //targets to be shot
+                ShootableBox health = hit.collider.GetComponent<ShootableBox>();                
 
                 if (health != null)
                 {
@@ -57,6 +58,13 @@ public class RaycastShoot : MonoBehaviour
                 if (hit.rigidbody != null)
                 {
                     hit.rigidbody.AddForce(-hit.normal * hitForce);
+                }
+
+                EnemyController ragdollSwitcher = hit.collider.GetComponent<EnemyController>();
+
+                if (ragdollSwitcher != null)
+                {
+                    ragdollSwitcher.ragdollTrigger();
                 }
             }
 
