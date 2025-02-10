@@ -229,7 +229,6 @@ GameObject:
   - component: {fileID: 221230583}
   - component: {fileID: 221230584}
   - component: {fileID: 221230585}
-  - component: {fileID: 221230586}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -301,14 +300,6 @@ MonoBehaviour:
   player: {fileID: 221230582}
   mouseSensitivity: 250
   lookXLimit: 60
---- !u!81 &221230586
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 221230582}
-  m_Enabled: 1
 --- !u!1 &274802283
 GameObject:
   m_ObjectHideFlags: 0
