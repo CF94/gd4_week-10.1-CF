@@ -7,6 +7,8 @@ TagManager:
   - KillZone
   - Enemy
   - DebugCamera
+  - Tomato Planter
+  - Cabbage Planter
   layers:
   - Default
   - TransparentFX

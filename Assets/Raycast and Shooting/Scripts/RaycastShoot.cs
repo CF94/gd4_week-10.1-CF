@@ -41,7 +41,6 @@ public class RaycastShoot : MonoBehaviour
 
             RaycastHit hit;
 
-
             // Determine point of origin for raycast, direction of raycast, returning what is hit as a value, and preventing anything from being hit outside of the range            
             if (Physics.Raycast(rayOrigin, fpsCam.transform.forward, out hit, weaponRange))
             {
